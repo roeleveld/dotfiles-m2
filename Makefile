@@ -21,7 +21,7 @@ macos: sudo core-macos packages link
 
 linux: core-linux link
 
-core-macos: brew bash git npm ruby rust
+core-macos: brew bash git npm ruby
 
 core-linux:
 	apt-get update
