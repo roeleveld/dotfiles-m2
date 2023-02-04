@@ -82,23 +82,16 @@ npm: brew-packages
 ruby: brew
 	$(BREW_BIN) install ruby
 
-rust: brew
-	$(BREW_BIN) install rust
-
 brew-packages: brew
 	$(BREW_BIN) bundle --file=$(DOTFILES_DIR)/install/Brewfile || true
 
 cask-apps: brew
 	$(BREW_BIN) bundle --file=$(DOTFILES_DIR)/install/Caskfile || true
-	defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 	xattr -d -r com.apple.quarantine ~/Library/QuickLook
 
 node-packages: npm
 	eval $$(fnm env); npm install -g $(shell cat install/npmfile)
-
-rust-packages: rust
-	$(CARGO_BIN) install $(shell cat install/Rustfile)
 
 test:
 	eval $$(fnm env); bats test
