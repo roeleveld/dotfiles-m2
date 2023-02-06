@@ -46,6 +46,7 @@ cask "default-folder-x"
 cask "keka"
 cask "transmit"
 cask "transmission"
+cask "google-drive"
 
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
